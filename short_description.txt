@@ -1,0 +1,15 @@
+SEQUOIA DEMONSTRATOR
+Energy Use Case: Optimization of Charging Schedules for Electric Cars
+
+Author: Andreas Sturm, Fraunhofer IAO, andreas.sturm@iao.fraunhofer.de
+----------------------------------------------------------------------
+
+Short Description
+
+In this demonstrator we show how to solve an energy use case on a quantum computer. It consists of four jupyter notebooks.
+In the first notebook we introduce the use case, show how it can be cast into a mathematical optimization problem, and explain how this problem can be implemented in python. The second notebook is dedicated to the quantum algorithm QAOA. We explain both the theory of QAOA and its implementation in qiskit by using a simple example of the energy use case. Then, in the third notebook we build a transpilation pipeline with which QAOA circuits can be executed on IBM quantum computers. Moreover, we explain how results from quantum computers can be postprocessed using a big data library. In the final notebook we present, discuss and explain results stemming from a series of experiment executed on the quanutm computer ibmq_ehningen.
+
+Kurzbeschreibung
+
+In diesem Demonstrator zeigen wir wie man einen Energie-Anwendungsfall auf einem Quantencomputer lösen kann. Der Demonstrator besteht dabei aus vier jupyter-Notebooks. Im ersten Notebook stellen wir den Anwedungsfall vor, zeigen wie er als ein mathematisches Optimierungsproblem formuliert werden kann und leiten eine Python-Implementierung her. Das zweite Notebook ist dem Quanten-Algorithmus QAOA gewidmet. An einem einfach Beispiel des Energie-Anwendungsfalles erklären wir sowohl die Theorie von QAOA als auch die Implementierung in qiskit. Im dritten Notebook implementieren wir eine Transpilations-Pipeline, mit welcher QAOA-Schaltkreise auf realen IBM Quantencomputern ausgeführt werden können. Des Weiteren erklären wir wie die Resultate eines Quantencomputers mit einem Big-Data-Bibliothek verarbeitet werden können. Im letzten Notebook präsentieren, diskutieren und erklären wir eine Reihe von Experimenten, welche auf dem Quantencomputer ibmq_ehningen ausgeführt wurden.
+
