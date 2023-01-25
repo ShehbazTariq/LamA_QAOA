@@ -7,3 +7,4 @@ qiskit_aer==0.11.2
 qiskit_terra==0.22.3
 qiskit-optimization
 qiskit-optimization[cplex]
+matplotlib
