@@ -1,4 +1,5 @@
+[default]
 circuit_drawer = mpl
 circuit_mpl_style = default
-#circuit_mpl_style_path = ~:~/.qiskit
+circuit_mpl_style_path = ~:~/.qiskit
 state_drawer = hinton
