@@ -11,6 +11,55 @@ import pickle
 import plotly.graph_objects as go
 from qiskit.circuit import QuantumCircuit
 from qiskit_optimization.algorithms.optimization_algorithm import OptimizationResult
+import matplotlib.pyplot as plt
+
+
+def plot_charging_schedule_mp(
+        charging_unit, #: ChargingUnit
+        minimization_result_x, # OptimizationResult.x,
+        marker_size=50,
+    ):
+    marker_colors = ["green", "orange", "blue", "red", "magenta", "goldenrod"]
+    time_slots = np.arange(0, charging_unit.number_time_slots)
+    fig, ax = plt.subplots()
+    already_in_legend = []
+    for t in time_slots:
+        offset = 0
+        for car_num in np.arange(0, len(charging_unit.cars_to_charge)):
+            car_id_current_car = charging_unit.cars_to_charge[car_num].car_id
+            minimization_result_x_current_car = minimization_result_x[
+                car_num*charging_unit.number_time_slots:(car_num+1)*charging_unit.number_time_slots]
+            power_t = minimization_result_x_current_car[t]
+            if power_t > 0:
+                ax.scatter(
+                    x=[t+0.5]*int(power_t),
+                    y=offset + np.arange(0, power_t),
+                    s=marker_size,
+                    marker="s",
+                    color=marker_colors[car_num],
+                    label=car_id_current_car if car_id_current_car not in already_in_legend else None,
+                )
+                offset += power_t
+                already_in_legend.append(car_id_current_car)
+
+    ax.set_xlim(0, charging_unit.number_time_slots)
+    ax.set_xticks(np.arange(0.5, charging_unit.number_time_slots))
+    ax.set_xticklabels(np.arange(0, charging_unit.number_time_slots))
+    ax.set_xlabel("time slot", fontsize=12)
+    ax.set_ylim(-0.6, charging_unit.number_charging_levels-1)
+    ax.set_yticks(np.arange(-0.5, charging_unit.number_charging_levels-0.5))
+    ax.set_yticklabels(np.arange(0, charging_unit.number_charging_levels))
+    ax.set_ylabel("charging level", fontsize=12)
+    ax.grid(False)
+    ax.legend(loc="best", fontsize=12)
+    plt.tight_layout()
+    return fig
+
+
+
+
+
+
 
 def plot_charging_schedule(
         charging_unit, #: ChargingUnit
